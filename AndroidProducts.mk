@@ -10,5 +10,4 @@ PRODUCT_MAKEFILES := \
 
 COMMON_LUNCH_CHOICES := \
     twrp_X657B-user \
-    twrp_X657B-userdebug \
     twrp_X657B-eng
