@@ -27,12 +27,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-impl-recovery
-
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl.mt6761
