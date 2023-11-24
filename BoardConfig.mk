@@ -59,7 +59,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
 BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_SECOND_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --board $(BOARD_NAME)
+#BOARD_MKBOOTIMG_ARGS += --board $(BOARD_NAME)
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -68,10 +68,6 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
-# Android-11 DECRYPTION
-BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
-    --prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
-    --prop com.android.build.boot.security_patch:$(PLATFORM_SECURITY_PATCH)
 
 # Partition
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -100,7 +96,6 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Decryption
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
 TW_USE_FSCRYPT_POLICY := 1
 
 # # Hack: prevent anti roll back
@@ -109,18 +104,15 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
 # Metadata
-BOARD_USES_METADATA_PARTITION := true
-BOARD_ROOT_EXTRA_FOLDERS += metadata
+
 
 # Additional binaries & libraries needed for recovery
 TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4support.so \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/android.hardware.keymaster@4.0-service.beanpod \
-    $(TARGET_OUT_VENDOR_EXECUTABLES)/teei_daemon \
     $(TARGET_OUT_VENDOR_EXECUTABLES)/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service \
-$(TARGET_OUT_VENDOR_EXECUTABLES)/hw/android.hardware.gatekeeper@1.0-service \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libkeymaster4.so \
-$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/vendor.mediatek.hardware.keymaster_attestation@1.0.so \
     $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/vendor.mediatek.hardware.keymaster_attestation@1.1.so \
