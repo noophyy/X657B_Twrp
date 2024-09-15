@@ -124,6 +124,7 @@ $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.keymaster-V2-ndk_platform.so
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # ADDING LOG
 TARGET_USES_LOGD := true
@@ -151,4 +152,4 @@ TW_HAS_MTP := true
 
 
 # Maintainer/Version
-TW_DEVICE_VERSION := Massatrio16
+TW_DEVICE_VERSION := Notedphy
