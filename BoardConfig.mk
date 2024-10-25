@@ -94,6 +94,7 @@ BOARD_MAIN_PARTITION_LIST := system system_ext vendor product
 
 # System as root
 BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Decryption
 TW_INCLUDE_CRYPTO := true
